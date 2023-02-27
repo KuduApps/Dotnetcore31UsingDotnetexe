@@ -57,7 +57,7 @@ echo Handling ASP.NET Core Web Application deployment with MSBuild16.
 call :ExecuteCmd dotnet restore "%DEPLOYMENT_SOURCE%\dotnetcore31web.sln" 
 IF !ERRORLEVEL! NEQ 0 goto error
 
-call :ExecuteCmd dotnet publish "%DEPLOYMENT_SOURCE%\dotnetcore31web.sln" --output "%DEPLOYMENT_TEMP%" --configuration Release
+call :ExecuteCmd dotnet publish "%DEPLOYMENT_SOURCE%\dotnetcore31web.sln" --property:PublishDir="%DEPLOYMENT_TEMP%" --configuration Release
 IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 2. KuduSync
